@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Système Solaire 3D</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <!-- HUD Top Left -->
+    <div id="hud-top">
+      <div id="title-bar">
+        <span class="title-icon">☀️</span>
+        <span>SYSTÈME SOLAIRE</span>
+      </div>
+      <div id="controls-hint">
+        <span>🖱️ Clic gauche + drag : orbiter</span>
+        <span>🖱️ Clic droit + drag : déplacer</span>
+        <span>🖱️ Scroll : zoom</span>
+        <span>🖱️ Clic sur planète : focus</span>
+      </div>
+    </div>
+
+    <!-- Speed Control -->
+    <div id="speed-panel">
+      <div class="panel-title">⏱ VITESSE</div>
+      <div id="speed-display">x1.0</div>
+      <input type="range" id="speed-slider" min="0" max="100" step="0.1" value="10" />
+      <div class="speed-presets">
+        <button class="speed-btn" data-speed="0">⏸</button>
+        <button class="speed-btn" data-speed="10">×1</button>
+        <button class="speed-btn" data-speed="63">×10</button>
+        <button class="speed-btn" data-speed="100">×50</button>
+      </div>
+    </div>
+
+    <!-- Planet Info Panel -->
+    <div id="info-panel" class="hidden">
+      <button id="info-close">✕</button>
+      <div id="info-planet-icon"></div>
+      <h2 id="info-name"></h2>
+      <div id="info-subtitle"></div>
+      <div id="info-grid"></div>
+      <div id="info-description"></div>
+    </div>
+
+    <!-- Terminal CMD -->
+    <div id="terminal">
+      <div id="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span id="terminal-title">SOLAR EXPLORER TERMINAL</span>
+      </div>
+      <div id="terminal-output">
+        <div class="term-line system">Système Solaire 3D — v1.0</div>
+        <div class="term-line system">Tapez <span class="cmd-highlight">help</span> pour la liste des commandes.</div>
+        <div class="term-line system">─────────────────────────────────</div>
+      </div>
+      <div id="terminal-input-row">
+        <span id="terminal-prompt">&gt;_</span>
+        <input type="text" id="terminal-input" placeholder="Entrez une commande..." autocomplete="off" spellcheck="false" />
+      </div>
+    </div>
+
+    <!-- Planet Labels (injected by JS) -->
+    <div id="labels-container"></div>
+
+    <!-- Made in Heaven audio (drop your file as /public/music/heaven.mp3) -->
+    <audio id="heaven-audio" src="/sounds/bigbang.mp3" preload="auto"></audio>
+
+    <!-- Harmonie — Sad Girl music (déposez votre fichier en /public/sounds/sad-girl.mp3) -->
+    <audio id="sad-girl-audio" src="/sounds/sadgirl.wav" preload="auto" loop></audio>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
