@@ -43,6 +43,50 @@ html, body {
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* ========== COLLAPSIBLE PANELS ========== */
+.collapsible {
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.collapsible.collapsed {
+  transform: translateX(calc(-100% - 16px));
+}
+
+.panel-tab {
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 52px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-left: none;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--accent);
+  font-size: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.2s, color 0.2s;
+  z-index: -1;
+}
+.panel-tab:hover {
+  background: rgba(80, 140, 255, 0.3);
+  color: white;
+}
+
+.tab-arrow {
+  display: inline-block;
+  transition: transform 0.45s;
+}
+.collapsible.collapsed .tab-arrow {
+  transform: rotate(180deg);
+}
+
 /* ========== HUD TOP LEFT ========== */
 #hud-top {
   position: fixed;
@@ -73,6 +117,13 @@ html, body {
   gap: 3px;
   font-size: 0.7rem;
   color: var(--text-dim);
+}
+
+/* Mouse hints by default, touch hints on touch devices */
+.hint-touch { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .hint-mouse { display: none; }
+  .hint-touch { display: block; }
 }
 
 /* ========== SPEED PANEL ========== */
@@ -268,8 +319,6 @@ html, body {
   border-radius: var(--radius);
   backdrop-filter: blur(16px);
   z-index: 10;
-  overflow: hidden;
-  transition: height 0.3s;
 }
 
 #terminal-header {
@@ -279,6 +328,7 @@ html, body {
   padding: 7px 12px;
   background: rgba(80, 140, 255, 0.08);
   border-bottom: 1px solid var(--panel-border);
+  border-radius: var(--radius) var(--radius) 0 0;
   cursor: pointer;
   user-select: none;
 }

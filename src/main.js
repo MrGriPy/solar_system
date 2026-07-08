@@ -7,6 +7,7 @@ import {
   showFocusBar, hideFocusBar,
   createLabels, updateLabels,
   initSpeedPanel, initTerminal,
+  initCollapsiblePanels,
 } from './ui.js';
 import { initHeaven } from './bigbang.js';
 import { initHarmonie } from './harmonie.js';
@@ -199,6 +200,9 @@ document.getElementById('info-close').addEventListener('click', () => {
 
 // ── Speed Panel ───────────────────────────────────────────────────────────────
 initSpeedPanel((v) => { speedFactor = v; });
+
+// ── Collapsible Panels ────────────────────────────────────────────────────────
+initCollapsiblePanels();
 
 // ── Terminal ──────────────────────────────────────────────────────────────────
 const term = initTerminal({

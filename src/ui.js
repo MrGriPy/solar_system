@@ -130,6 +130,19 @@ export function updateLabels(labelMap, bodies, camera, renderer) {
   }
 }
 
+// ── Collapsible Panels ────────────────────────────────────────────────────────
+
+export function initCollapsiblePanels() {
+  document.querySelectorAll('.collapsible').forEach(panel => {
+    const tab = panel.querySelector('.panel-tab');
+    if (!tab) return;
+    tab.addEventListener('click', (e) => {
+      e.stopPropagation();
+      panel.classList.toggle('collapsed');
+    });
+  });
+}
+
 // ── Speed Panel ───────────────────────────────────────────────────────────────
 
 export function initSpeedPanel(onSpeedChange) {

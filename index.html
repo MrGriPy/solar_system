@@ -10,21 +10,27 @@
     <canvas id="canvas"></canvas>
 
     <!-- HUD Top Left -->
-    <div id="hud-top">
+    <div id="hud-top" class="collapsible">
+      <button class="panel-tab" aria-label="Masquer / afficher le panneau"><span class="tab-arrow">◀</span></button>
       <div id="title-bar">
         <span class="title-icon">☀️</span>
         <span>SYSTÈME SOLAIRE</span>
       </div>
       <div id="controls-hint">
-        <span>🖱️ Clic gauche + drag : orbiter</span>
-        <span>🖱️ Clic droit + drag : déplacer</span>
-        <span>🖱️ Scroll : zoom</span>
-        <span>🖱️ Clic sur planète : focus</span>
+        <span class="hint-mouse">🖱️ Clic gauche + drag : orbiter</span>
+        <span class="hint-mouse">🖱️ Clic droit + drag : déplacer</span>
+        <span class="hint-mouse">🖱️ Scroll : zoom</span>
+        <span class="hint-mouse">🖱️ Clic sur planète : focus</span>
+        <span class="hint-touch">👆 1 doigt : orbiter</span>
+        <span class="hint-touch">✌️ 2 doigts : déplacer</span>
+        <span class="hint-touch">🤏 Pincer : zoom</span>
+        <span class="hint-touch">👆 Toucher une planète : focus</span>
       </div>
     </div>
 
     <!-- Speed Control -->
-    <div id="speed-panel">
+    <div id="speed-panel" class="collapsible">
+      <button class="panel-tab" aria-label="Masquer / afficher le panneau"><span class="tab-arrow">◀</span></button>
       <div class="panel-title">⏱ VITESSE</div>
       <div id="speed-display">x1.0</div>
       <input type="range" id="speed-slider" min="0" max="100" step="0.1" value="10" />
@@ -47,7 +53,8 @@
     </div>
 
     <!-- Terminal CMD -->
-    <div id="terminal">
+    <div id="terminal" class="collapsible">
+      <button class="panel-tab" aria-label="Masquer / afficher le panneau"><span class="tab-arrow">◀</span></button>
       <div id="terminal-header">
         <span class="terminal-dot red"></span>
         <span class="terminal-dot yellow"></span>
